@@ -77,9 +77,9 @@ git clone https://github.com/JayKishoreDuvvuri/Playwright-SauceDemo-BrowserStack
 
 #### Run tests on BrowserStack
 ```bash
-npm run test:smoke - Test on chrome@latest:Windows 10
+npm run test:smoke - Runs test on chrome@latest:Windows 10
 ```
 
 ```bash
-npm run test  - Run all tests on chrome@latest:Windows 10, chrome@latest-beta:OSX Big Sur, edge:Windows 10, firefox@latest:OSX Catalina and safari@latest:OSX Big Sur
+npm run test  - Runs all tests on chrome@latest:Windows 10, chrome@latest-beta:OSX Big Sur, edge:Windows 10, firefox@latest:OSX Catalina and safari@latest:OSX Big Sur
 ```
