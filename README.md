@@ -72,7 +72,7 @@ Testname: TC_05_checkoutWithPGUandSU.test.js
 
 Clone the repository
 ```bash
-git clone https://github.com/JayKishoreDuvvuri/Playwright-JavaScript.git
+git clone https://github.com/JayKishoreDuvvuri/Playwright-SauceDemo-BrowserStack.git
 ```
 
 #### Run tests on BrowserStack
