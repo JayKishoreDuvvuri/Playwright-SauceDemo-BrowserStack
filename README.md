@@ -83,3 +83,4 @@ npm run test:smoke - Runs test on chrome@latest:Windows 10
 ```bash
 npm run test  - Runs all tests on chrome@latest:Windows 10, chrome@latest-beta:OSX Big Sur, edge:Windows 10, firefox@latest:OSX Catalina and safari@latest:OSX Big Sur
 ```
+ 
