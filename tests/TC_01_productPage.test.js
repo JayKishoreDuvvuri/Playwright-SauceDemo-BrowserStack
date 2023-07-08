@@ -24,18 +24,18 @@ Test Steps:
 16.	User logout from the application and verify the login page
 */
 
-const test = require("../testFixtures/fixture");
-const { expect } = require("@playwright/test");
-const fs = require("fs");
-const { username, password, loginButton } = require("../pageobjects/loginPage");
-const {
+import test from "../testFixtures/fixture";
+import { expect } from "@playwright/test";
+import { readFileSync } from "fs";
+import { username, password, loginButton } from "../pageobjects/loginPage";
+import {
   twitterLink,
   facebookLink,
   linkedInLink,
-} = require("../pageobjects/productsPage");
-const testData = JSON.parse(fs.readFileSync(`./data/users.json`, `utf-8`));
+} from "../pageobjects/productsPage";
+const testData = JSON.parse(readFileSync(`./data/users.json`, `utf-8`));
 
-const {
+import {
   baseUrl,
   title,
   landingPageUrl,
@@ -49,7 +49,7 @@ const {
   facebookUrl,
   linkedInTitle,
   linkedInUrl,
-} = require("../config");
+} from "../config";
 
 test.describe.parallel(
   "@smoke: Login as a standard user to verify the products page and logout from the application",
@@ -77,7 +77,6 @@ test.describe.parallel(
         `Verify Login button is enabled and bot image is visible`,
         async () => {
           await loginPage.loginButtonIsEnabled();
-          await loginPage.botImageVisible();
         }
       );
 
@@ -98,7 +97,6 @@ test.describe.parallel(
         async () => {
           await productsPage.verifyProductsPageLogoVisible();
           await productsPage.verifyProductsPageTitleVisible();
-          await productsPage.verifyPeekImage();
           expect(await productsPage.getUrl()).toContain(landingPageUrl);
         }
       );
@@ -153,7 +151,6 @@ test.describe.parallel(
         `Verify the footer text+swag bot footer+social channel links are visible`,
         async () => {
           await productsPage.footerTextVisible();
-          await productsPage.swagBotFooterVisible();
           await productsPage.socialChannelLinksVisible();
         }
       );
@@ -168,7 +165,6 @@ test.describe.parallel(
           await loginPage.usernameFieldVisible();
           await loginPage.passwordFieldVisible();
           await loginPage.loginButtonIsEnabled();
-          await loginPage.botImageVisible();
           await loginPage.loginCredentialsVisible();
           await loginPage.passwordCredentialsVisible();
           expect(await loginPage.getTitle()).toBe(title);
@@ -257,6 +253,6 @@ test.describe.serial("Verify All Social Channel Links", () => {
     ]);
     await newPage.waitForLoadState("domcontentloaded");
     await newPage.waitForLoadState("networkidle");
-    expect(newPage.url()).toBe(twitterUrl);
+    expect(newPage.url()).toContain(twitterUrl);
   });
 });

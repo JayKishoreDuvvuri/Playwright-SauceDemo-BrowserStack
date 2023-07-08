@@ -1,7 +1,7 @@
-const BasePage = require("./basePage");
-const { baseUrl } = require("../config");
-const fs = require("fs");
-const {
+import BasePage from "./basePage";
+import { baseUrl } from "../config";
+import { readFileSync } from "fs";
+import {
   loginPageLogo,
   username,
   password,
@@ -9,11 +9,11 @@ const {
   loginPageBotImage,
   loginCredentials,
   loginPasswordCredentials,
-} = require("../pageobjects/loginPage");
+} from "../pageobjects/loginPage";
 
-const { errorMessage } = require("../pageobjects/checkoutYourInformationPage");
+import { errorMessage } from "../pageobjects/checkoutYourInformationPage";
 
-const testData = JSON.parse(fs.readFileSync(`./data/users.json`, `utf-8`));
+const testData = JSON.parse(readFileSync(`./data/users.json`, `utf-8`));
 
 class LoginPage extends BasePage {
   constructor(page) {
@@ -97,4 +97,4 @@ class LoginPage extends BasePage {
     );
   }
 }
-module.exports = LoginPage;
+export default LoginPage;

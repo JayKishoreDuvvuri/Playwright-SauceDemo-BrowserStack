@@ -1,46 +1,44 @@
-
-const { devices } = require('@playwright/test');
-const config = {
-  testDir: 'tests',
-  testMatch: '**/*.test.js',
+import { defineConfig } from "@playwright/test";
+export default defineConfig({
+  testDir: "tests",
+  testMatch: "**/*.test.js",
   timeout: 60000,
-  use:{
-    viewport: null
+  use: {
+    viewport: null,
   },
   projects: [
     {
-      name:  'chrome@latest:Windows 10@browserstack',
+      name: "chrome@latest:Windows 10@browserstack",
       use: {
-        browserName: 'chromium',
-        channel: 'chrome'
+        browserName: "chromium",
+        channel: "chrome",
       },
     },
     {
-      name: 'chrome@latest-beta:OSX Big Sur@browserstack',
+      name: "chrome@latest-beta:OSX Big Sur@browserstack",
       use: {
-        browserName: 'chromium',
-        channel: 'chrome',
+        browserName: "chromium",
+        channel: "chrome",
       },
     },
     {
-      name: 'edge@90:Windows 10@browserstack',
+      name: "edge@90:Windows 10@browserstack",
       use: {
-        browserName: 'chromium'
+        browserName: "chromium",
       },
     },
     {
-      name: 'playwright-firefox@latest:OSX Catalina@browserstack',
+      name: "playwright-firefox@latest:OSX Catalina@browserstack",
       use: {
-        browserName: 'firefox',
-        ignoreHTTPSErrors: true
+        browserName: "firefox",
+        ignoreHTTPSErrors: true,
       },
     },
     {
-      name: 'playwright-webkit@latest:OSX Big Sur@browserstack',
+      name: "playwright-webkit@latest:OSX Big Sur@browserstack",
       use: {
-        browserName: 'webkit',
+        browserName: "webkit",
       },
     },
   ],
-}
-module.exports = config;
+});

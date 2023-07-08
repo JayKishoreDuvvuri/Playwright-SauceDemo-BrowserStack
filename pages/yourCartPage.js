@@ -1,17 +1,16 @@
-const BasePage = require("./basePage");
-const fs = require("fs");
-const {
+import BasePage from "./basePage";
+import { readFileSync } from "fs";
+import {
   appLogo,
   burgerMenuBtn,
   shoppingCartLink,
   fleeceJacketname,
   footerText,
-  swagBotFooter,
   twitterLink,
   facebookLink,
   linkedInLink,
-} = require("../pageobjects/productsPage");
-const {
+} from "../pageobjects/productsPage";
+import {
   title,
   cartQuantityLabel,
   cartItemLabel,
@@ -23,9 +22,9 @@ const {
   checkoutButton,
   fleeceJacketPrice,
   removeButtonTshirtRed,
-} = require("../pageobjects/yourCartPage");
+} from "../pageobjects/yourCartPage";
 
-const testData = JSON.parse(fs.readFileSync(`./data/users.json`, `utf-8`));
+const testData = JSON.parse(readFileSync(`./data/users.json`, `utf-8`));
 
 class YourCartPage extends BasePage {
   constructor(page) {
@@ -111,7 +110,6 @@ class YourCartPage extends BasePage {
     await this.isElementVisible(facebookLink, testData.notVisibleText);
     await this.isElementVisible(twitterLink, testData.notVisibleText);
     await this.isElementVisible(linkedInLink, testData.notVisibleText);
-    await this.isElementVisible(swagBotFooter, testData.notVisibleText);
     await this.isElementVisible(footerText, testData.notVisibleText);
   }
 
@@ -136,4 +134,4 @@ class YourCartPage extends BasePage {
     await this.isElementNotVisible(cartItemLabel, testData.notAvailabletext);
   }
 }
-module.exports = YourCartPage;
+export default YourCartPage;

@@ -1,20 +1,20 @@
-const base = require("@playwright/test");
-const LoginPage = require("../pages/loginPage");
-const ProductsPage = require("../pages/productsPage");
-const ProductDetailsPage = require("../pages/productDetailsPage");
-const YourCartPage = require("../pages/yourCartPage");
-const CheckoutYourInformationPage = require("../pages/checkoutYourInformationPage");
-const CheckoutOverviewPage = require("../pages/checkoutOverviewPage");
-const CheckoutCompletePage = require("../pages/checkoutCompletePage");
+import { test as fixture } from "@playwright/test";
+import LoginPage from "../pages/loginPage";
+import ProductsPage from "../pages/productsPage";
+import ProductDetailsPage from "../pages/productDetailsPage";
+import YourCartPage from "../pages/yourCartPage";
+import CheckoutYourInformationPage from "../pages/checkoutYourInformationPage";
+import CheckoutOverviewPage from "../pages/checkoutOverviewPage";
+import CheckoutCompletePage from "../pages/checkoutCompletePage";
 
 const caps = {
   browser: 'chrome',
   os: 'osx',
   os_version: 'catalina',
   name: 'Playwright-Sauce-Demo',
-  build: 'playwright-build-1',
-  'browserstack.username': 'jaykishoreduvvur_pnsG3S',
-  'browserstack.accessKey':'ccqeMmANQ2ikmYsxkTjN',
+  build: 'playwright-build-6',
+  'browserstack.username': 'jaykishoreduvvur_T1H2Kt',
+  'browserstack.accessKey':'TFVLzirFH3pFms9ATqso',
   'browserstack.local': false,
   'client.playwrightVersion': '1.22.1',
 };
@@ -50,7 +50,7 @@ const evaluateSessionStatus = (status) => {
   }
 }
 
-const test = base.test.extend({
+const test = fixture.extend({
   loginPage: async ({ page }, use) => {
     await use(new LoginPage(page));
   },
@@ -100,4 +100,4 @@ const test = base.test.extend({
     }
   },
 });
-module.exports = test;
+export default test;

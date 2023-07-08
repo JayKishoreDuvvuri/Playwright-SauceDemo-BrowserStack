@@ -1,25 +1,24 @@
-const BasePage = require("./basePage");
-const fs = require("fs");
-const {
+import BasePage from "./basePage";
+import { readFileSync } from "fs";
+import {
   appLogo,
   burgerMenuBtn,
   shoppingCartLink,
   fleeceJacketname,
   footerText,
-  swagBotFooter,
   twitterLink,
   facebookLink,
   linkedInLink,
-} = require("../pageobjects/productsPage");
-const {
+} from "../pageobjects/productsPage";
+import {
   cartQuantityLabel,
   cartDescriptionLabel,
   cartQuantity,
   flecceJacketText,
   fleeceJacketPrice,
-} = require("../pageobjects/yourCartPage");
-const { cancelButton } = require("../pageobjects/checkoutYourInformationPage");
-const {
+} from "../pageobjects/yourCartPage";
+import { cancelButton } from "../pageobjects/checkoutYourInformationPage";
+import {
   title,
   paymentInformationLabel,
   secureCardInfo,
@@ -29,9 +28,9 @@ const {
   itemTaxLabel,
   summaryTotalLabel,
   finishButton,
-} = require("../pageobjects/checkoutOverviewPage");
+} from "../pageobjects/checkoutOverviewPage";
 
-const testData = JSON.parse(fs.readFileSync(`./data/users.json`, `utf-8`));
+const testData = JSON.parse(readFileSync(`./data/users.json`, `utf-8`));
 
 class CheckoutOverviewPage extends BasePage {
   constructor(page) {
@@ -150,7 +149,6 @@ class CheckoutOverviewPage extends BasePage {
     await this.isElementVisible(facebookLink, testData.notVisibleText);
     await this.isElementVisible(twitterLink, testData.notVisibleText);
     await this.isElementVisible(linkedInLink, testData.notVisibleText);
-    await this.isElementVisible(swagBotFooter, testData.notVisibleText);
     await this.isElementVisible(footerText, testData.notVisibleText);
   }
 
@@ -158,4 +156,4 @@ class CheckoutOverviewPage extends BasePage {
     return await this.waitAndClick(finishButton, testData.notEnabledText);
   }
 }
-module.exports = CheckoutOverviewPage;
+export default CheckoutOverviewPage;

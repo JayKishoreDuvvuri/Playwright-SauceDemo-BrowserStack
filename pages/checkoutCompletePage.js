@@ -1,24 +1,23 @@
-const BasePage = require("./basePage");
-const fs = require("fs");
-const {
+import BasePage from "./basePage";
+import { readFileSync } from "fs";
+import {
   appLogo,
   burgerMenuBtn,
   shoppingCartLink,
   footerText,
-  swagBotFooter,
   twitterLink,
   facebookLink,
   linkedInLink,
-} = require("../pageobjects/productsPage");
-const {
+} from "../pageobjects/productsPage";
+import {
   title,
   completeHeader,
   completeText,
   ponyExpressImage,
   backHomeButton,
-} = require("../pageobjects/checkoutCompletePage");
+} from "../pageobjects/checkoutCompletePage";
 
-const testData = JSON.parse(fs.readFileSync(`./data/users.json`, `utf-8`));
+const testData = JSON.parse(readFileSync(`./data/users.json`, `utf-8`));
 
 class CheckoutCompletePage extends BasePage {
   constructor(page) {
@@ -82,7 +81,6 @@ class CheckoutCompletePage extends BasePage {
     await this.isElementVisible(facebookLink, testData.notVisibleText);
     await this.isElementVisible(twitterLink, testData.notVisibleText);
     await this.isElementVisible(linkedInLink, testData.notVisibleText);
-    await this.isElementVisible(swagBotFooter, testData.notVisibleText);
     await this.isElementVisible(footerText, testData.notVisibleText);
   }
 
@@ -90,4 +88,4 @@ class CheckoutCompletePage extends BasePage {
     return await this.waitAndClick(backHomeButton, testData.notEnabledText);
   }
 }
-module.exports = CheckoutCompletePage;
+export default CheckoutCompletePage;

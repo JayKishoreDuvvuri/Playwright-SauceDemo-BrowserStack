@@ -1,16 +1,15 @@
-const BasePage = require("./basePage");
-const fs = require("fs");
-const {
+import BasePage from "./basePage";
+import { readFileSync } from "fs";
+import {
   appLogo,
   burgerMenuBtn,
   shoppingCartLink,
   footerText,
-  swagBotFooter,
   twitterLink,
   facebookLink,
   linkedInLink,
-} = require("../pageobjects/productsPage");
-const {
+} from "../pageobjects/productsPage";
+import {
   title,
   firstName,
   lastName,
@@ -18,9 +17,9 @@ const {
   cancelButton,
   continueButton,
   errorMessage,
-} = require("../pageobjects/checkoutYourInformationPage");
+} from "../pageobjects/checkoutYourInformationPage";
 
-const testData = JSON.parse(fs.readFileSync(`./data/users.json`, `utf-8`));
+const testData = JSON.parse(readFileSync(`./data/users.json`, `utf-8`));
 
 class CheckoutYourInformationPage extends BasePage {
   constructor(page) {
@@ -114,7 +113,6 @@ class CheckoutYourInformationPage extends BasePage {
     await this.isElementVisible(facebookLink, testData.notVisibleText);
     await this.isElementVisible(twitterLink, testData.notVisibleText);
     await this.isElementVisible(linkedInLink, testData.notVisibleText);
-    await this.isElementVisible(swagBotFooter, testData.notVisibleText);
     await this.isElementVisible(footerText, testData.notVisibleText);
   }
 
@@ -122,4 +120,4 @@ class CheckoutYourInformationPage extends BasePage {
     return await this.waitAndClick(continueButton, testData.notEnabledText);
   }
 }
-module.exports = CheckoutYourInformationPage;
+export default CheckoutYourInformationPage;

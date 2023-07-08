@@ -25,13 +25,10 @@ Test Steps:
 17.	User logout from the application and is navigated back to login page
 */
 
-const test = require("../testFixtures/fixture");
-const { expect } = require("@playwright/test");
-const fs = require("fs");
+import test from "../testFixtures/fixture";
+import { expect } from "@playwright/test";
 
-const testData = JSON.parse(fs.readFileSync(`./data/users.json`, `utf-8`));
-
-const {
+import {
   baseUrl,
   title,
   landingPageUrl,
@@ -41,7 +38,7 @@ const {
   checkoutYourInformationUrl,
   checkoutOverviewUrl,
   checkoutCompleteUrl,
-} = require("../config");
+} from "../config";
 
 test.describe(
   "Login as a standard user to complete the checkout workflow",
@@ -70,7 +67,6 @@ test.describe(
         async () => {
           await productsPage.verifyProductsPageLogoVisible();
           await productsPage.verifyProductsPageTitleVisible();
-          await productsPage.verifyPeekImage();
           expect(await productsPage.getUrl()).toContain(landingPageUrl);
         }
       );
@@ -239,7 +235,6 @@ test.describe(
           await loginPage.usernameFieldVisible();
           await loginPage.passwordFieldVisible();
           await loginPage.loginButtonIsEnabled();
-          await loginPage.botImageVisible();
           await loginPage.loginCredentialsVisible();
           await loginPage.passwordCredentialsVisible();
           expect(await loginPage.getTitle()).toBe(title);

@@ -33,13 +33,10 @@ Test Steps:
 22.	Verify whether user is on the login page 
 */
 
-const test = require("../testFixtures/fixture");
-const { expect } = require("@playwright/test");
-const fs = require("fs");
+import test from "../testFixtures/fixture";
+import { expect } from "@playwright/test";
 
-const testData = JSON.parse(fs.readFileSync(`./data/users.json`, `utf-8`));
-
-const {
+import {
   baseUrl,
   title,
   landingPageUrl,
@@ -47,7 +44,7 @@ const {
   checkoutYourInformationUrl,
   checkoutOverviewUrl,
   checkoutCompleteUrl,
-} = require("../config");
+} from "../config";
 
 test.describe.parallel(
   "Login as a Locked out user and Performance glitch user and complete the checkout workflow with Standard user" +

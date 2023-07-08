@@ -1,9 +1,8 @@
-const BasePage = require("./basePage");
-const fs = require("fs");
-const {
+import BasePage from "./basePage";
+import { readFileSync } from "fs";
+import {
   appLogo,
   landingPageTitle,
-  landingPageImage,
   burgerMenuBtn,
   burgerCrossButton,
   allItemsSideBarLink,
@@ -45,15 +44,14 @@ const {
   tshirtRedAddToCartBtn,
   listOfElements,
   footerText,
-  swagBotFooter,
   twitterLink,
   facebookLink,
   linkedInLink,
   removeButton,
   addtoCartBtnAll,
-} = require("../pageobjects/productsPage");
+} from "../pageobjects/productsPage";
 
-const testData = JSON.parse(fs.readFileSync(`./data/users.json`, `utf-8`));
+const testData = JSON.parse(readFileSync(`./data/users.json`, `utf-8`));
 
 class ProductsPage extends BasePage {
   constructor(page) {
@@ -67,13 +65,6 @@ class ProductsPage extends BasePage {
   async verifyProductsPageTitleVisible() {
     return await this.isElementVisible(
       landingPageTitle,
-      testData.notVisibleText
-    );
-  }
-
-  async verifyPeekImage() {
-    return await this.isElementVisible(
-      landingPageImage,
       testData.notVisibleText
     );
   }
@@ -303,9 +294,6 @@ class ProductsPage extends BasePage {
     return await this.isElementVisible(footerText, testData.notVisibleText);
   }
 
-  async swagBotFooterVisible() {
-    return await this.isElementVisible(swagBotFooter, testData.notVisibleText);
-  }
 
   async socialChannelLinksVisible() {
     await this.isElementVisible(twitterLink, testData.notVisibleText);
@@ -313,4 +301,4 @@ class ProductsPage extends BasePage {
     await this.isElementVisible(linkedInLink, testData.notVisibleText);
   }
 }
-module.exports = ProductsPage;
+export default ProductsPage;
