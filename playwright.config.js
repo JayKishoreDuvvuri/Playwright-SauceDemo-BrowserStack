@@ -1,4 +1,5 @@
 import { defineConfig } from "@playwright/test";
+
 export default defineConfig({
   testDir: "tests",
   testMatch: "**/*.test.js",
@@ -9,6 +10,13 @@ export default defineConfig({
   projects: [
     {
       name: "chrome@latest:Windows 10@browserstack",
+      use: {
+        browserName: "chromium",
+        channel: "chrome",
+      },
+    },
+    {
+      name: "chrome@latest:Windows 11@browserstack",
       use: {
         browserName: "chromium",
         channel: "chrome",
@@ -31,7 +39,6 @@ export default defineConfig({
       name: "playwright-firefox@latest:OSX Catalina@browserstack",
       use: {
         browserName: "firefox",
-        ignoreHTTPSErrors: true,
       },
     },
     {

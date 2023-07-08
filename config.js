@@ -11,7 +11,7 @@ module.exports = {
   backPack: "$29.99",
   twitterTitle: "Twitter",
   twitterUrl: "saucelabs",
-  facebookTitle: "Sauce Labs | Facebook",
+  facebookTitle: "Sauce Labs",
   facebookUrl: "https://www.facebook.com/saucelabs",
   linkedInTitle: "LinkedIn",
   linkedInUrl: "https://www.linkedin.com",

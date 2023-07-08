@@ -12,11 +12,11 @@ const caps = {
   os: 'osx',
   os_version: 'catalina',
   name: 'Playwright-Sauce-Demo',
-  build: 'playwright-build-6',
+  build: 'playwright-build-7',
   'browserstack.username': 'jaykishoreduvvur_T1H2Kt',
   'browserstack.accessKey':'TFVLzirFH3pFms9ATqso',
   'browserstack.local': false,
-  'client.playwrightVersion': '1.22.1',
+  'client.playwrightVersion': '1.35.1',
 };
 
 // Patching the capabilities dynamically according to the project name.
@@ -76,7 +76,7 @@ const test = fixture.extend({
   page: async ({ page, playwright }, use, testInfo) => {
     if (testInfo.project.name.match(/browserstack/)) {
       patchCaps(testInfo.project.name, `${testInfo.file} - ${testInfo.title}`);
-      const vBrowser = await playwright.chromium.connect({
+      const vBrowser = await playwright.chromium.launch({
         wsEndpoint:
           `wss://cdp.browserstack.com/playwright?caps=` +
           `${encodeURIComponent(JSON.stringify(caps))}`,
