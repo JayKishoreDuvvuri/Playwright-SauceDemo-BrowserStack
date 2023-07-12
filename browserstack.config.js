@@ -11,7 +11,7 @@ const caps = {
   os: "osx",
   os_version: "catalina",
   name: "My first playwright test",
-  build: "playwright-build-006",
+  build: "playwright-build-007",
   "browserstack.username": "jaykishore_kjTNiL",
   "browserstack.accessKey": "9AnpwFRARxnsncYJzpq4",
   "browserstack.local": false,
