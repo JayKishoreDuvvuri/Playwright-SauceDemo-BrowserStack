@@ -11,7 +11,7 @@ const caps = {
   os: "osx",
   os_version: "catalina",
   name: "My first playwright test",
-  build: "playwright-build-005",
+  build: "playwright-build-006",
   "browserstack.username": "jaykishore_kjTNiL",
   "browserstack.accessKey": "9AnpwFRARxnsncYJzpq4",
   "browserstack.local": false,
@@ -27,7 +27,7 @@ const patchCaps = (name, title) => {
   let os = osCapsSplit.shift();
   let os_version = osCapsSplit.join(" ");
   caps.browser = browser ? browser : "chrome";
-  caps.browser_version = browser_version ? browser_version : "latest";
+  caps.os_version = browser_version ? browser_version : "latest";
   caps.os = os ? os : "osx";
   caps.os_version = os_version ? os_version : "catalina";
   caps.name = title;
