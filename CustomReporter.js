@@ -19,4 +19,4 @@ class CustomReporter {
     console.log(error.message);
   }
 }
-module.exports = CustomReporter;
+export default CustomReporter;

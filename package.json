@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test",
-    "test:smoke": "npx playwright test --grep @smoke --project='chrome@latest:Windows 10@browserstack'",
+    "test:smoke": "npx playwright test --grep @smoke --project='chrome@latest:Windows 10'",
     "test:browserstack": "npx playwright test --grep @smoke",
     "test:serial": "npx playwright test --workers=1 --project=Chrome",
     "test:one": "npx playwright test tests/TC_01_productPage.test.js",
@@ -26,7 +26,8 @@
     "show-trace": "npx playwright show-trace",
     "allure:clean": "rm -rf allure-results",
     "allure-generate": "allure generate ./allure-results --clean",
-    "allure:report": "npm run allure-generate && allure serve"
+    "allure:report": "npm run allure-generate && allure serve",
+    "postinstall": "npm update browserstack-node-sdk"
   },
   "keywords": [
     "Plawright",
@@ -41,5 +42,8 @@
     "browserstack-local": "^1.5.3",
     "fs": "^0.0.1-security",
     "prettier": "^2.6.2"
+  },
+  "devDependencies": {
+    "browserstack-node-sdk": "^1.23.2"
   }
 }
